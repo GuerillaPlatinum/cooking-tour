@@ -10,7 +10,7 @@ const Form = () => {
                 <h3 className='text-green-700 font-bold text-md'>GET IN TOUCH</h3>
                 <span className='text-2xl'>We're here to help you create magic!</span>
             </article>  
-            <form action="" className='flex flex-col px-2 py-4 justify-center'>
+            <form action="https://formspree.io/f/mdkelzek" method="POST" className='flex flex-col px-2 py-4 justify-center'>
                 <label htmlFor="name" required >Name</label>
                 <input type="text" id='name' placeholder='Jane Smith' className='border my-1 px-2 py-1 mb-6' />
                 <label htmlFor="email"required>Email</label>
@@ -21,7 +21,7 @@ const Form = () => {
                 <textarea id='message' className='h-32 px-2 py-2 mb-6 border' placeholder='Type your message...'></textarea>
 
                 <article><input type='checkbox' /> <span>I allow this website to store my submission so they can respond to my inquiry</span></article>
-                <button className='bg-green-800 mt-5 w-full px-10 py-3 text-sm font-bold cursor-pointer'>SUBMIT</button>
+                <button type='submit' className='bg-green-800 mt-5 w-full px-10 py-3 text-sm font-bold cursor-pointer'>SUBMIT</button>
             </form>
         </div>
         <div className="map  w-full flex flex-col items-center py-5">
