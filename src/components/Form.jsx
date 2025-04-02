@@ -5,34 +5,40 @@ import {hours} from '../constants';
 const Form = () => {
     const [status, setStatus] = useState("");
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
     
-    // Convert formData to a JSON object
-    const jsonData = Object.fromEntries(formData.entries());
-
-    try {
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: JSON.stringify(jsonData),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+        // Convert FormData to JSON
+        const jsonData = Object.fromEntries(formData.entries());
+        console.log("Sending JSON:", JSON.stringify(jsonData)); // Log JSON before sending
+    
+        try {
+            const response = await fetch(form.action, {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(jsonData)
+            });
+    
+            const result = await response.json();
+            console.log("Response:", result); // Log response from Formspree
+    
+            if (response.ok) {
+                setStatus("Thank you! Your message has been sent.");
+                form.reset();
+            } else {
+                setStatus("Oops! Something went wrong.");
             }
-        });
-
-        if (response.ok) {
-            setStatus("Thank you! Your message has been sent.");
-            form.reset();
-        } else {
+        } catch (error) {
+            console.error("Fetch error:", error);
             setStatus("Oops! Something went wrong.");
         }
-    } catch (error) {
-        setStatus("Oops! Something went wrong.");
-    }
-};
+    };
+    
   return (
     <div className='formap bg-neutral-900 w-full  py-10 flex flex-col items-center justify-center gap-15 md:flex-row md:px-10 lg:flex-row px-10'>
         <div className='form w-full py-5 px-7 flex flex-col gap-5'>
@@ -40,7 +46,7 @@ const handleSubmit = async (e) => {
                 <h3 className='text-green-700 font-bold text-md'>GET IN TOUCH</h3>
                 <span className='text-2xl'>We're here to help you create magic!</span>
             </article>  
-            <form action="https://formspree.io/f/xpwpjrey" method="POST" className='flex flex-col px-2 py-4 justify-center'>
+            <form action="https://formspree.io/f/xpwpjrey" className='flex flex-col px-2 py-4 justify-center'>
                 <label htmlFor="name" required >Name</label>
                 <input type="text" name='name' placeholder='Jane Smith' className='border my-1 px-2 py-1 mb-6' />
                 <label htmlFor="email"required>Email</label>
