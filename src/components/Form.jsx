@@ -2,6 +2,32 @@ import React, {useState} from 'react'
 import {Menu, X,MapPinCheckInside,Mail, AlignRight, Search} from 'lucide-react';
 import {hours} from '../constants';
 const Form = () => {    
+
+    const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // prevent page reload
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://getform.io/f/allyvnqa', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset(); // clear the form
+      } else {
+        alert('Submission failed. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('There was an error!');
+    }
+  };
     
   return (
     <div className='formap bg-neutral-900 w-full  py-10 flex flex-col items-center justify-center gap-15 md:flex-row md:px-10 lg:flex-row px-10'>
