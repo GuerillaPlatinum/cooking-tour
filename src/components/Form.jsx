@@ -36,7 +36,7 @@ const Form = () => {
                 <h3 className='text-green-700 font-bold text-md'>GET IN TOUCH</h3>
                 <span className='text-2xl'>We're here to help you create magic!</span>
             </article>  
-            <form action="https://getform.io/f/allyvnqa" method='POST' className='flex flex-col px-2 py-4 justify-center'>
+            <form onSubmit={handleSubmit} className='flex flex-col px-2 py-4 justify-center'>
                 <label htmlFor="name" >Name</label>
                 <input type="text" name='name' placeholder='Jane Smith' className='border my-1 px-2 py-1 mb-6'required />
                 <label htmlFor="email">Email</label>
