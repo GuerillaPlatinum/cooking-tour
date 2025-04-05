@@ -51,6 +51,11 @@ const Form = () => {
                     <input type="hidden" name="subscribe" value="no"></input>
                     </article>
                 <button type='submit' className='bg-green-800 mt-5 w-full px-10 py-3 text-sm font-bold cursor-pointer'>SUBMIT</button>
+                {submitted && (
+                <p className="text-green-500 mt-4 text-center font-semibold">
+                ✅ Your message has been successfully submitted!
+                </p>
+                )}
             </form>
         </div>
         <div className="map  w-full flex flex-col items-center py-5">
