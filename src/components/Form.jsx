@@ -18,7 +18,7 @@ const Form = () => {
                 <h3 className='text-green-700 font-bold text-md'>GET IN TOUCH</h3>
                 <span className='text-2xl'>We're here to help you create magic!</span>
             </article>  
-            <form action="https://formspree.io/f/xpwpjrey" method="POST" className='flex flex-col px-2 py-4 justify-center'>
+            <form action="https://getform.io/f/allyvnqa" method='POST' className='flex flex-col px-2 py-4 justify-center'>
                 <label htmlFor="name" >Name</label>
                 <input type="text" name='name' placeholder='Jane Smith' className='border my-1 px-2 py-1 mb-6'required />
                 <label htmlFor="email">Email</label>
@@ -28,7 +28,10 @@ const Form = () => {
                 <label htmlFor="message">Message</label>
                 <textarea name='message' className='h-32 px-2 py-2 mb-6 border' placeholder='Type your message...'required></textarea>
 
-                <article><input type='checkbox' required/> <span>I allow this website to store my submission so they can respond to my inquiry</span></article>
+                <article>
+                <input type="checkbox" name="subscribe" value="yes" checked/> <span>I allow this website to store my submission so they can respond to my inquiry</span>
+                    <input type="hidden" name="subscribe" value="no"></input>
+                    </article>
                 <button type='submit' className='bg-green-800 mt-5 w-full px-10 py-3 text-sm font-bold cursor-pointer'>SUBMIT</button>
             </form>
         </div>
