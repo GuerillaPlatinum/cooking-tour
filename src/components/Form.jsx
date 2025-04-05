@@ -1,15 +1,7 @@
 import React, {useState} from 'react'
 import {Menu, X,MapPinCheckInside,Mail, AlignRight, Search} from 'lucide-react';
 import {hours} from '../constants';
-const Form = () => {
-    const [status, setStatus] = useState("");
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-    };
-    
-    
+const Form = () => {    
     
   return (
     <div className='formap bg-neutral-900 w-full  py-10 flex flex-col items-center justify-center gap-15 md:flex-row md:px-10 lg:flex-row px-10'>
